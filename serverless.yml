@@ -1,0 +1,16 @@
+org: lucha0075db
+app: ec2-deploy
+service: ec2-deploy
+
+frameworkVersion: '2 || 3'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: eu-west-2
+  lambdaHashingVersion: 20201221
+
+resources:
+  - ${file(resources/ec2.yml)}
+  - ${file(resources/securityGroup.yml)}
+  # create the EC2 resource file

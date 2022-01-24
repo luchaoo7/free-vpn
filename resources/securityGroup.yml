@@ -1,0 +1,34 @@
+Resources:
+  OpenVPNSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: "Allo access to OpenVPN"
+      GroupName: "OpenVPNSecurityGroup"
+      SecurityGroupIngress: # Inbound Traffic 
+        - IpProtocol: tcp
+          Description: "Port for OpenVPN access tcp"
+          FromPort: 943
+          ToPort: 943
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: udp
+          Description: "Port for OpenVPN access udp"
+          FromPort: 1194
+          ToPort: 1194
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          Description: "HTTPS access"
+          FromPort: 443
+          ToPort: 443
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          Description: "SSH access"
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          Description: "Helium access"
+          FromPort: 44158
+          ToPort: 44158
+          CidrIp: 0.0.0.0/0
+      #SecurityGroupEgress: Not needed. By default all access to exit is allowed
+      
