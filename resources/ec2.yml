@@ -1,6 +1,17 @@
 Resources:
   Ec2Instance:
     Type: AWS::EC2::Instance
+    Metadata:
+      Comment1: "Configure the bootstrap helpers to install openvpn-as"
+      Comment2: "Run scripts from /usr/local/openvpn_as/scripts"
+
+      AWS::CloudFormation::Init:
+        configSets:
+          Install:
+            - Install
+        Install:
+          packages:
+            openvpn-as: []
     Properties:
       InstanceType: t2.micro
       ImageId: ami-0015a39e4b7c0966f # Ubuntu Server 20.04 LTS (HVM), SSD Volume Type Free Tier, eu-west-2 image
