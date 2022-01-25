@@ -21,7 +21,6 @@ Resources:
         Fn::Base64: !Sub |
           #!/bin/bash -xe
           hostnamectl set-hostname $(curl http://checkip.amazonaws.com)
-          sed -i 's/127.0.0.1 localhost//g' /etc/hosts && echo '127.0.0.1' $(curl http://checkip.amazonaws.com) >> /etc/hosts
 
           apt-get update -y
           mkdir -p /opt/aws/bin
