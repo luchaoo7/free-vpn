@@ -8,14 +8,52 @@ Resources:
       AWS::CloudFormation::Init:
         configSets:
           Install:
-            - Install
+          - Install
         Install:
           packages:
-            openvpn-as: []
+            apt:
+              - openvpn-as
     Properties:
       InstanceType: t2.micro
       ImageId: ami-0015a39e4b7c0966f # Ubuntu Server 20.04 LTS (HVM), SSD Volume Type Free Tier, eu-west-2 image
       KeyName: openVPNec2
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash -xe
+          hostnamectl set-hostname $(curl http://checkip.amazonaws.com)
+          sed -i 's/127.0.0.1 localhost//g' /etc/hosts && echo '127.0.0.1' $(curl http://checkip.amazonaws.com) >> /etc/hosts
+
+          apt-get update -y
+          mkdir -p /opt/aws/bin
+          wget https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
+          python3 -m easy_install --script-dir /opt/aws/bin aws-cfn-bootstrap-py3-latest.tar.gz
+          apt -y install ca-certificates wget net-tools gnupg
+          wget -qO - https://as-repository.openvpn.net/as-repo-public.gpg | apt-key add -
+          echo "deb http://as-repository.openvpn.net/as/debian focal main">/etc/apt/sources.list.d/openvpn-as-repo.list
+          apt update
+
+          apt -y install openvpn-as
+
+          sed -i 's/dest="force",/dest="force", default=True,/g' /usr/local/openvpn_as/bin/_ovpn-init
+          sed -i 's/dest="batch",/dest="batch", default=True,/g' /usr/local/openvpn_as/bin/_ovpn-init
+          sed -i 's/dest="ec2",/dest="ec2", default=True,/g' /usr/local/openvpn_as/bin/_ovpn-init
+
+          ln -s /usr/local/openvpn_as/bin/ /usr/local/bin/ovpn-manual-configure
+
+          ln -s /usr/local/openvpn_as/scripts/ /usr/local/bin/openvpn-scripts
+
+          ovpn-init
+
+          echo 'sacli --user test1 --key "type" --value "user_connect" UserPropPut' >> ~/new_user.sh
+          echo 'sacli --user test1 --new_pass test1 SetLocalPassword' >> ~/new_user.sh
+          echo 'sacli --user test1 --key "prop_autologin" --value "true" UserPropPut' >> ~/new_user.sh
+          echo 'sacli --user test1 --key "prop_superuser" --value "true" UserPropPut' >> ~/new_user.sh
+          echo 'sacli start' >> ~/new_user.sh
+
+          chmod 755 ~/new_user.sh
+          ~/new_user.sh
+
+          /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --resource Ec2Instance --region ${AWS::Region}
       SecurityGroupIds:
         - !Ref OpenVPNSecurityGroup 
       Tags:
