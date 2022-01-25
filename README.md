@@ -88,3 +88,9 @@ Which should result in response similar to the following:
     "body": "{\n  \"message\": \"Go Serverless v2.0! Your function executed successfully!\",\n  \"input\": \"\"\n}"
 }
 ```
+
+### Future update
+
+At the moment the VPN is deployt in eu-west-2, with a specic image ID for that region.
+The below github page shows how to make the region and imageID selection more dynamic
+https://github.com/awslabs/aws-cloudformation-templates/blob/master/aws/solutions/OperatingSystems/ubuntu20.04LTS_cfn-hup.cfn.yaml
