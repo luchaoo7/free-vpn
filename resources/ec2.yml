@@ -38,10 +38,7 @@ Resources:
           sed -i 's/dest="ec2",/dest="ec2", default=True,/g' /usr/local/openvpn_as/bin/_ovpn-init
 
           ln -s /usr/local/openvpn_as/bin/ /usr/local/bin/ovpn-manual-configure
-
           ln -s /usr/local/openvpn_as/scripts/ /usr/local/bin/openvpn-scripts
-
-          ovpn-init
 
           echo 'sacli --user test1 --key "type" --value "user_connect" UserPropPut' >> ~/new_user.sh
           echo 'sacli --user test1 --new_pass test1 SetLocalPassword' >> ~/new_user.sh
@@ -50,7 +47,7 @@ Resources:
           echo 'sacli start' >> ~/new_user.sh
 
           chmod 755 ~/new_user.sh
-          ~/new_user.sh
+          ovpn-init && ~/new_user.sh
 
           /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --resource Ec2Instance --region ${AWS::Region}
       SecurityGroupIds:
