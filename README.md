@@ -28,6 +28,9 @@ This template demonstrates how to create a free VPN running on AWS EC2 instance 
 
 ## Usage
 
+- Creating a user in AWS
+![](https://raw.githubusercontent.com/luchaoo7/free-vpn/master/images/creating-iam-user.gif)
+
 ### Deployment
 
 In order to deploy the example, you need to run the following command:
