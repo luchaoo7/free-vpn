@@ -26,10 +26,12 @@ This template demonstrates how to create a free VPN running on AWS EC2 instance 
   - Sign up and use the free plan [here](https://www.serverless.com/pricing)
   - Add AWS as the provider and register IAM user keys for deployment
 
-## Usage
+## Steps
 
-- Creating a user in AWS
+- Creating an IAM user with admin rights in AWS
 ![](https://raw.githubusercontent.com/luchaoo7/free-vpn/master/images/creating-iam-user.gif)
+
+## Usage
 
 ### Deployment
 
