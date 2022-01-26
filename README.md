@@ -31,6 +31,8 @@ This template demonstrates how to create a free VPN running on AWS EC2 instance 
 - Creating an IAM user with admin rights in AWS
 ![](https://raw.githubusercontent.com/luchaoo7/free-vpn/master/images/creating-iam-user.gif)
 
+- Creating key-pairs
+![](https://raw.githubusercontent.com/luchaoo7/free-vpn/master/images/creating-iam-user.gif)
 ## Usage
 
 ### Deployment
