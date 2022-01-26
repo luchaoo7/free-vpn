@@ -12,7 +12,7 @@ authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
 -->
 
 
-# Serverless Framework AWS Free VPN
+# Free VPN
 
 This template demonstrates how to create a free VPN running on AWS EC2 instance using the Serverless Framework.
 
