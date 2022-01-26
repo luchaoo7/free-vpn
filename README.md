@@ -12,9 +12,16 @@ authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
 -->
 
 
-# Serverless Framework AWS NodeJS Example
+# Serverless Framework AWS Free VPN
 
-This template demonstrates how to deploy a NodeJS function running on AWS Lambda using the traditional Serverless Framework. The deployed function does not include any event definitions as well as any kind of persistence (database). For more advanced configurations check out the [examples repo](https://github.com/serverless/examples/) which includes integrations with SQS, DynamoDB or examples of functions that are triggered in `cron`-like manner. For details about configuration of specific `events`, please refer to our [documentation](https://www.serverless.com/framework/docs/providers/aws/events/).
+This template demonstrates how to create a free VPN running on AWS EC2 instance using the Serverless Framework.
+
+## Requirements
+
+- AWS Free Tier
+  - Sign up for a 1 year free account [here](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all)
+- Serverless Free Tier 
+  - Sign up and use the free plan [here](https://www.serverless.com/pricing)
 
 ## Usage
 
@@ -46,51 +53,13 @@ Serverless: Stack update finished...
 Service Information
 service: aws-node
 stage: dev
-region: us-east-1
+region: eu-west-2
 stack: aws-node-dev
-resources: 6
-functions:
-  api: aws-node-dev-hello
-layers:
-  None
-```
-
-### Invocation
-
-After successful deployment, you can invoke the deployed function by using the following command:
-
-```bash
-serverless invoke --function hello
-```
-
-Which should result in response similar to the following:
-
-```json
-{
-    "statusCode": 200,
-    "body": "{\n  \"message\": \"Go Serverless v2.0! Your function executed successfully!\",\n  \"input\": {}\n}"
-}
-```
-
-### Local development
-
-You can invoke your function locally by using the following command:
-
-```bash
-serverless invoke local --function hello
-```
-
-Which should result in response similar to the following:
-
-```
-{
-    "statusCode": 200,
-    "body": "{\n  \"message\": \"Go Serverless v2.0! Your function executed successfully!\",\n  \"input\": \"\"\n}"
-}
+resources: 4
 ```
 
 ### Future update
 
 At the moment the VPN is deployt in eu-west-2, with a specic image ID for that region.
-The below github page shows how to make the region and imageID selection more dynamic
-https://github.com/awslabs/aws-cloudformation-templates/blob/master/aws/solutions/OperatingSystems/ubuntu20.04LTS_cfn-hup.cfn.yaml
+The below link shows how to make the region and imageID selection more dynamic
+[aws-cloudformation-templates](https://github.com/awslabs/aws-cloudformation-templates/blob/master/aws/solutions/OperatingSystems/ubuntu20.04LTS_cfn-hup.cfn.yaml)
