@@ -14,7 +14,7 @@ authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
 
 # Free VPN
 
-This template demonstrates how to create a free VPN running on AWS EC2 instance using the Serverless Framework.
+This template demonstrates how to create a free VPN running on an AWS EC2 instance using the Serverless Framework.
 
 ## Requirements
 
@@ -24,16 +24,23 @@ This template demonstrates how to create a free VPN running on AWS EC2 instance 
   - Create a key pair and name it "openVPNec2" (if you want access to the ec2 instance at some point).
 - Serverless Free Tier 
   - Sign up and use the free plan [here](https://www.serverless.com/pricing)
-  - Add AWS as the provider and register IAM user keys for deployment
+  - Register your Access Key ID & Secret Access Key from AWS with Serverless.
 
 ## Steps
 
-- Creating an IAM user with admin rights in AWS
+##### AWS
+- Assuming you already signed up  [here](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all).
+- Creating an IAM user with admin rights in AWS. Follow the below gif.
 ![](https://raw.githubusercontent.com/luchaoo7/free-vpn/master/images/creating-iam-user.gif)
-  - Remember to download your the .csv file. It will contain your Secret Access Key and Access Key ID, which you will need later. You can also copy and paste it to notepad as soon as you sucessfully create your user. You will not be able to see your Secret Access Key again unless you download it. 
-
-- Creating key-pairs
+  - Remember to download the .csv file. It will contain your Secret Access Key and Access Key ID, which you will need later. You can also copy and paste it to notepad as soon as you sucessfully create your user. You will not be able to see your Secret Access Key again unless you download it. 
+.
+- Creating key-pair. Follow the gif.
 ![](https://raw.githubusercontent.com/luchaoo7/free-vpn/master/images/create-key-pair.gif)
+
+##### Serverless
+- Assuming you already signed up [here](https://www.serverless.com/pricing). 
+- Register your Access Key ID & Secret Access Key in  Serverless.
+
 ## Usage
 
 ### Deployment
