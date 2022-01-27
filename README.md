@@ -26,7 +26,12 @@ This template demonstrates how to create a free VPN running on an AWS EC2 instan
   - Sign up and use the free plan [here](https://www.serverless.com/pricing)
   - Register your Access Key ID & Secret Access Key from AWS with Serverless.
 
-## Steps
+###### Tools
+- nodejs
+- Any of: Unix, Linux, WSL (Windows Subsystem for Linux)  
+- Git (project can be downloaded without git)
+
+## Setup steps
 
 ##### AWS
 - Assuming you already signed up  [here](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all).
@@ -42,6 +47,7 @@ This template demonstrates how to create a free VPN running on an AWS EC2 instan
 - Register your Access Key ID & Secret Access Key in  Serverless.
 
 ## Usage
+
 
 ### Deployment
 
