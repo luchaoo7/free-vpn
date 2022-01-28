@@ -45,6 +45,7 @@ This template demonstrates how to create a free VPN running on an AWS EC2 instan
 ##### Serverless
 - Assuming you already signed up [here](https://www.serverless.com/pricing). 
 - Register your Access Key ID & Secret Access Key in  Serverless.
+  - The most secure way it to create an IAM Access Role but for this guide we will be using our Secret Key and Access ID in the next step.
 
 ## Usage
 
@@ -93,10 +94,11 @@ If your browser does not open automatically, please open this URL:
 https://app.serverless.com?client=cli&transactionId=kdt5zMTVgA5huEMiCLfb6                                                                                                                                
 ✔ You are now logged in the Serverless Dashboard 
 
-The next command is to onboard the application.
+The next command is to onboard the application. 
 ```
 serverless
 ```
+
 
 ### Deployment
 
