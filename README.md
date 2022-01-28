@@ -53,14 +53,13 @@ On a terminal download the project from github.
 ```
 $ git clone  git@github.com:luchaoo7/free-vpn.git
 ```
-or at https://github.com/luchaoo7/free-vpn click to download the project. see gif.
+or at https://github.com/luchaoo7/free-vpn click to download the project to then unzip it. see gif.
+.
+![](https://raw.githubusercontent.com/luchaoo7/free-vpn/master/images/project-download.gif)
 
 ```
 $ unzip free-vpn-master.zip
 ```
-
-.
-![](https://raw.githubusercontent.com/luchaoo7/free-vpn/master/images/project-download.gif)
 
 Once you unzip or clone the project you will see a the folder "free-vpn". Change directory into the folder. Every command will be executed from this root folder.
 ```
@@ -120,7 +119,8 @@ Once the above is done your VPN will be up and runing in an EC2 instance.
 - vpn user: test1
 - vpn password: test1
 
-All we need to do now is find our public IP to download our VPN file.
+All we need to do now is find the Public IP of where our VPN is running.
+We need to go to our AWS account and find the EC2 instance with thee name "OpenVPN" that was create when we deployed our application.
 
 ### Future update
 

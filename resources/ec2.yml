@@ -53,7 +53,7 @@ Resources:
       SecurityGroupIds:
         - !Ref OpenVPNSecurityGroup 
       Tags:
-        - Key: name
-          Value: OpenVPN EC2
+        - Key: Name
+          Value: free-vpn
         - Key: Type
           Value: Serverless Creation
