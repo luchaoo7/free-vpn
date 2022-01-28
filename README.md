@@ -69,6 +69,17 @@ Inside the folder list to see the content.
 ```
 $ ls
 ```
+├── images\
+│   ├── create-key-pair.gif\
+│   ├── creating-iam-user.gif\
+│   ├── deploying.gif\
+│   └── project-download.gif\
+├── LICENSE\
+├── README.md\
+├── resources\
+│   ├── ec2.yml\
+│   └── securityGroup.yml\
+└── serverless.yml\
 > <span style="color:blue">images</span> LICENSE README.md <span style="color:blue">resources</span> serverless.yml
 
 Assuming you have nodejs installed, install the serverless package globally.
