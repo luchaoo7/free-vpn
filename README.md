@@ -98,6 +98,25 @@ The next command is to onboard the application.
 ```
 serverless
 ```
+You will be presented with the following options.
+
+> What org do you want to add this service to? ***select the suggested name***
+> What application do you want to add this to?
+> ✔ Your project has been setup with org "dabrown" and app "free-vpn"
+>  No AWS credentials found, what credentials do you want to use?
+  ***select the local option***
+
+>  Do you have an AWS account? yes
+> ? Press Enter to continue after creating an AWS user with access keys 
+  ***Close the browser that opens***
+
+> ? AWS Access Key Id: ***Paste your access key Id***
+>? AWS Secret Access Key: ***Paste your secret access key***
+> ✔ AWS credentials saved on your machine at "~/.aws/credentials". Go there to change them at any time.
+> ? Do you want to deploy your project? Yes
+> ? Do you want to deploy your project? Yes
+> Deploying free-vpn to stage dev (eu-west-2)
+> ✔ Service deployed to stack free-vpn-dev (103s)
 
 
 ### Deployment
