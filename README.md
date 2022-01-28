@@ -45,25 +45,30 @@ This template demonstrates how to create a free VPN running on an AWS EC2 instan
 ##### Serverless
 - Assuming you already signed up [here](https://www.serverless.com/pricing). 
 - Register your Access Key ID & Secret Access Key in  Serverless.
-  - The most secure way it to create an IAM Access Role but for this guide we will be using our Secret Key and Access ID in the next step.
+  - The most secure way is to create an IAM Access Role but for this guide we will be using our Secret Key and Access ID locally in the next step.
 
-## Usage
+## Deployment
 
 On a terminal download the project from github.
 ```
-git clone  git@github.com:luchaoo7/free-vpn.git
+$ git clone  git@github.com:luchaoo7/free-vpn.git
 ```
 or at https://github.com/luchaoo7/free-vpn click to download the project. see gif.
+
+```
+$ unzip free-vpn-master.zip
+```
+
 .
 ![](https://raw.githubusercontent.com/luchaoo7/free-vpn/master/images/project-download.gif)
 
 Once you unzip or clone the project you will see a the folder "free-vpn". Change directory into the folder. Every command will be executed from this root folder.
 ```
-cd free-vpn 
+$ cd free-vpn 
 ```
 Inside the folder list to see the content.
 ```
-ls
+$ ls
 ```
 >
 ├── images
@@ -80,13 +85,13 @@ ls
 Assuming you have nodejs installed, install the serverless package globally.
 
 ```
-npm install -g serverless
+$ npm install -g serverless
 ```
 
 Log into serverless through the terminal. This will open your browser and ask you to log in if you are not already logged in.
 
 ```
-serverless login
+$ serverless login
 ```
 You should get a similar message in your terminal.
 > Logging in the Serverless Dashboard via the browser                                                                                                                                                        
@@ -96,7 +101,7 @@ https://app.serverless.com?client=cli&transactionId=kdt5zMTVgA5huEMiCLfb6
 
 The next command is to onboard the application. 
 ```
-serverless
+$ serverless
 ```
 You will be presented with the following options.
 
@@ -118,41 +123,14 @@ You will be presented with the following options.
 > Deploying free-vpn to stage dev (eu-west-2)
 > ✔ Service deployed to stack free-vpn-dev (103s)
 
+See below
+![](https://raw.githubusercontent.com/luchaoo7/free-vpn/master/images/deploying.gif)
 
-### Deployment
+Once the above is done your VPN will be up and runing in an EC2 instance.
+- vpn user: test1
+- vpn password: test1
 
-In order to deploy the example, you need to run the following command:
-
-```
-$ serverless deploy
-```
-
-After running deploy, you should see output similar to:
-
-```bash
-Serverless: Packaging service...
-Serverless: Excluding development dependencies...
-Serverless: Creating Stack...
-Serverless: Checking Stack create progress...
-........
-Serverless: Stack create finished...
-Serverless: Uploading CloudFormation file to S3...
-Serverless: Uploading artifacts...
-Serverless: Uploading service aws-node.zip file to S3 (711.23 KB)...
-Serverless: Validating template...
-Serverless: Updating Stack...
-Serverless: Checking Stack update progress...
-.................................
-Serverless: Stack update finished...
-Service Information
-service: aws-node
-stage: dev
-region: eu-west-2
-stack: aws-node-dev
-resources: 4
-```
-
-An EC2 instance will have been deployed with a public address
+All we need to do now is find our public IP to download our VPN file.
 
 ### Future update
 
