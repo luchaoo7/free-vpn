@@ -27,9 +27,9 @@ This template demonstrates how to create a free VPN running on an AWS EC2 instan
   - Register your Access Key ID & Secret Access Key from AWS with Serverless.
 
 ###### Tools
-- nodejs
-- Any of: Unix, Linux, WSL (Windows Subsystem for Linux)  
-- Git (project can be downloaded without git)
+- nodejs [here](https://nodejs.org/en/)
+- Any of: Unix, Linux, WSL (Windows Subsystem for Linux).
+- Git (project can be downloaded without git).
 
 ## Setup steps
 
@@ -48,6 +48,55 @@ This template demonstrates how to create a free VPN running on an AWS EC2 instan
 
 ## Usage
 
+On a terminal download the project from github.
+```
+git clone  git@github.com:luchaoo7/free-vpn.git
+```
+or at https://github.com/luchaoo7/free-vpn click to download the project. see gif.
+.
+![](https://raw.githubusercontent.com/luchaoo7/free-vpn/master/images/project-download.gif)
+
+Once you unzip or clone the project you will see a the folder "free-vpn". Change directory into the folder. Every command will be executed from this root folder.
+```
+cd free-vpn 
+```
+Inside the folder list to see the content.
+```
+ls
+```
+>
+├── images
+│   ├── create-key-pair.gif
+│   ├── creating-iam-user.gif
+│   └── project-download.gif
+├── LICENSE
+├── README.md
+├── resources
+│   ├── ec2.yml
+│   └── securityGroup.yml
+└── serverless.yml
+
+Assuming you have nodejs installed, install the serverless package globally.
+
+```
+npm install -g serverless
+```
+
+Log into serverless through the terminal. This will open your browser and ask you to log in if you are not already logged in.
+
+```
+serverless login
+```
+You should get a similar message in your terminal.
+> Logging in the Serverless Dashboard via the browser                                                                                                                                                        
+If your browser does not open automatically, please open this URL:                                                                                                                                         
+https://app.serverless.com?client=cli&transactionId=kdt5zMTVgA5huEMiCLfb6                                                                                                                                
+✔ You are now logged in the Serverless Dashboard 
+
+The next command is to onboard the application.
+```
+serverless
+```
 
 ### Deployment
 
