@@ -104,13 +104,13 @@ You will be presented with the following options.
 > ? Press Enter to continue after creating an AWS user with access keys 
   ***Close the browser that opens***
 
-> ? AWS Access Key Id: ***Paste your access key Id***
->? AWS Secret Access Key: ***Paste your secret access key***
-> ✔ AWS credentials saved on your machine at "~/.aws/credentials". Go there to change them at any time.
-> ? Do you want to deploy your project? Yes
-> ? Do you want to deploy your project? Yes
-> Deploying free-vpn to stage dev (eu-west-2)
-> ✔ Service deployed to stack free-vpn-dev (103s)
+> ? AWS Access Key Id: ***Paste your access key Id***\
+>? AWS Secret Access Key: ***Paste your secret access key***\
+> ✔ AWS credentials saved on your machine at "~/.aws/credentials". Go there to change them at any time.\
+> ? Do you want to deploy your project? Yes\
+> ? Do you want to deploy your project? Yes\
+> Deploying free-vpn to stage dev (eu-west-2)\
+> ✔ Service deployed to stack free-vpn-dev (103s)\
 
 See below
 ![](https://raw.githubusercontent.com/luchaoo7/free-vpn/master/images/deploying.gif)
@@ -120,7 +120,7 @@ Once the above is done your VPN will be up and runing in an EC2 instance.
 - vpn password: test1
 
 All we need to do now is find the Public IP of where our VPN is running.
-We need to go to our AWS account and find the EC2 instance with thee name "OpenVPN" that was create when we deployed our application.
+We need to go to our AWS account and find the EC2 instance with the name "free-vpn" that was create when we deployed our application.
 
 ### Future update
 
