@@ -131,7 +131,20 @@ Once the above is done your VPN will be up and runing in an EC2 instance.
 - vpn password: test1
 
 All we need to do now is find the Public IP of where our VPN is running.
-We need to go to our AWS account and find the EC2 instance with the name "free-vpn" that was create when we deployed our application.
+We need to go to our AWS account and find the EC2 instance with the name "free-vpn" that was created when we deployed our application.
+
+##### findind our IP and download file
+
+![](https://raw.githubusercontent.com/luchaoo7/free-vpn/master/images/ip-login.gif)
+
+The Public IP generated for my vpn was 13.40.28.61. So by going to https://13.40.28.61 I can log in with my username (test1) and password (test1) to download the files to log into the vpn. 
+One file allows you to log in without the need of a password and the other requires your password, pick whichever.
+
+><em>note* you can change your test1 user's password and also access the admin page at https://YouIP/admin<em>
+
+##### vpn client download
+You can download the vpn client once you login. It's available for Windows, Mac, linux, android and iOS.
+![](https://raw.githubusercontent.com/luchaoo7/free-vpn/master/images/openvpn-page.png)
 
 ### Future update
 
