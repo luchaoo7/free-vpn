@@ -1,18 +1,9 @@
 <!--
-title: 'AWS NodeJS Example'
-description: 'This template demonstrates how to deploy a NodeJS function running on AWS Lambda using the traditional Serverless Framework.'
-layout: Doc
-framework: v2
-platform: AWS
-language: nodeJS
-priority: 1
-authorLink: 'https://github.com/serverless'
-authorName: 'Serverless, inc.'
-authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
+title: 'Free VPN Setup'
+authorLink: 'https://github.com/luchaoo7'
 -->
 
-
-# Free VPN
+# Your Own Free VPN
 
 This template demonstrates how to create a free VPN running on an AWS EC2 instance using the Serverless Framework.
 
@@ -21,7 +12,6 @@ This template demonstrates how to create a free VPN running on an AWS EC2 instan
 - AWS Free Tier
   - Sign up for a 1 year free account [here](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all).
   - Create an IAM user with Admin privileges.
-  - Create a key pair and name it "openVPNec2" (if you want access to the ec2 instance at some point).
 - Serverless Free Tier 
   - Sign up and use the free plan [here](https://www.serverless.com/pricing)
   - Register your Access Key ID & Secret Access Key from AWS with Serverless.
@@ -39,8 +29,6 @@ This template demonstrates how to create a free VPN running on an AWS EC2 instan
 ![](https://raw.githubusercontent.com/luchaoo7/free-vpn/master/images/creating-iam-user.gif)
   - Remember to download the .csv file. It will contain your Secret Access Key and Access Key ID, which you will need later. You can also copy and paste it to notepad as soon as you sucessfully create your user. You will not be able to see your Secret Access Key again unless you download it. 
 .
-- Creating key-pair. Follow the gif.
-![](https://raw.githubusercontent.com/luchaoo7/free-vpn/master/images/create-key-pair.gif)
 
 ##### Serverless
 - Assuming you already signed up [here](https://www.serverless.com/pricing). 

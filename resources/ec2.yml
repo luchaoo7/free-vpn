@@ -16,7 +16,6 @@ Resources:
     Properties:
       InstanceType: t2.micro
       ImageId: ami-0015a39e4b7c0966f # Ubuntu Server 20.04 LTS (HVM), SSD Volume Type Free Tier, eu-west-2 image
-      KeyName: openVPNec2
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash -xe
@@ -33,9 +32,9 @@ Resources:
 
           apt -y install openvpn-as
 
-          sed -i 's/dest="force",/dest="force", default=True,/g' /usr/local/openvpn_as/bin/_ovpn-init
-          sed -i 's/dest="batch",/dest="batch", default=True,/g' /usr/local/openvpn_as/bin/_ovpn-init
           sed -i 's/dest="ec2",/dest="ec2", default=True,/g' /usr/local/openvpn_as/bin/_ovpn-init
+          sed -i "s/passw = esc_str/passw = \"\" #/g" /usr/local/openvpn_as/bin/_ovpn-init
+          sed -i "s/f\"Type a pass/#f\"Type a pass/g" /usr/local/openvpn_as/bin/_ovpn-init
 
           ln -s /usr/local/openvpn_as/bin/ /usr/local/bin/ovpn-manual-configure
           ln -s /usr/local/openvpn_as/scripts/ /usr/local/bin/openvpn-scripts
@@ -47,7 +46,7 @@ Resources:
           echo 'sacli start' >> ~/new_user.sh
 
           chmod 755 ~/new_user.sh
-          ovpn-init && ~/new_user.sh
+          printf 'DELETE\nyes\nyes\n1\nrsa\n2048\nrsa\n2048\n943\n443\nyes\nyes\nyes\nyes\n\n' | ovpn-init && ~/new_user.sh
 
           /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --resource Ec2Instance --region ${AWS::Region}
       SecurityGroupIds:

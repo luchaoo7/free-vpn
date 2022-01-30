@@ -25,10 +25,3 @@ Resources:
           FromPort: 22
           ToPort: 22
           CidrIp: 0.0.0.0/0
-        - IpProtocol: tcp
-          Description: "Helium access"
-          FromPort: 44158
-          ToPort: 44158
-          CidrIp: 0.0.0.0/0
-      #SecurityGroupEgress: Not needed. By default all access to exit is allowed
-      
