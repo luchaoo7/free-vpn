@@ -7,6 +7,17 @@ authorLink: 'https://github.com/luchaoo7'
 
 This template demonstrates how to create a free VPN running on an AWS EC2 instance using the Serverless Framework and leveraging [OpenVPN](https://openvpn.net/vpn-software-packages/).
 
+### Why do you need your own VPN ?
+- Maybe you want to watch content your ISP is blocking.
+- Maybe you want to watch content the content provider is blocking in your geographical region e.g. Netflix blocking certain US content for UK customers.
+- Maybe you want access to a crypto exchange that blocks people in a certain region. 
+- Maybe you don't want to be tracked by ads. 
+- Maybe you don't want someone snooping in on your network connection while at Starbucks or Hilton Hotel.
+- Maybe you don't want to pay for a VPN that claims not to keep logs (my favorite).
+- Maybe you don't want to use one of those free vpns (not this one) that slows down the connection or times you at. 
+- Maybe you just want control .
+- or Maybe you just want to learn.
+
 ## Requirements
 
 - AWS Free Tier
@@ -156,17 +167,6 @@ and re-deploy with:
 ```
 $ serverless deploy
 ```
-### Why do you need your own VPN ?
-- Maybe you want to watch content your ISP is blocking.
-- Maybe you want to watch content the content provider is blocking in your geographical region e.g. Netflix blocking certain US content for UK customers.
-- Maybe you want access to a crypto exchange that blocks people in a certain region. 
-- Maybe you don't want to be tracked by ads. 
-- Maybe you don't want someone snooping in on your network connection while at Starbucks or Hilton Hotel.
-- Maybe you don't want to pay for a VPN that claims not to keep logs (my favorite).
-- Maybe you don't want to use one of those free vpns (not this one) that slows down the connection or times you at. 
-- Maybe you just want control .
-- or Maybe you just want to learn.
-
 ### Conclusion
 
 I created this small setup because I was tired of having to manually setup my EC2 instance for VPN purposes and sometimes forgeting commands and sometimes forgetting what resouces I had running. With this setup I know when I do ***serverless remove*** I'm not forgetting anytiong. And of course, it's free :).
