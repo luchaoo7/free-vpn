@@ -136,9 +136,11 @@ You can download the vpn client once you login. It's available for Windows, Mac,
 Once you have downloaded and installed one of the clients, you can import the profile file(s) we downloaded and connect to the VPN.
 
 ##### Connection Demo on Ubuntu
+see gif
+![](https://raw.githubusercontent.com/luchaoo7/free-vpn/master/images/activating-vpn.gif)
 
 ### Future update
 
-At the moment the VPN is deployt in eu-west-2, with a specic image ID for that region.
+At the moment the VPN is deploys to eu-west-2, with a specic image ID for that region.
 The below link shows how to make the region and imageID selection more dynamic
 [aws-cloudformation-templates](https://github.com/awslabs/aws-cloudformation-templates/blob/master/aws/solutions/OperatingSystems/ubuntu20.04LTS_cfn-hup.cfn.yaml)
