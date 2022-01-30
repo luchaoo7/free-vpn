@@ -5,7 +5,7 @@ authorLink: 'https://github.com/luchaoo7'
 
 # Your Own Free VPN
 
-This template demonstrates how to create a free VPN running on an AWS EC2 instance using the Serverless Framework.
+This template demonstrates how to create a free VPN running on an AWS EC2 instance using the Serverless Framework and leveraging [OpenVPN](https://openvpn.net/vpn-software-packages/).
 
 ## Requirements
 
