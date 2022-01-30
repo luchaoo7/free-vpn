@@ -28,7 +28,6 @@ This template demonstrates how to create a free VPN running on an AWS EC2 instan
 - Creating an IAM user with admin rights in AWS. Follow the below gif.
 ![](https://raw.githubusercontent.com/luchaoo7/free-vpn/master/images/creating-iam-user.gif)
   - Remember to download the .csv file. It will contain your Secret Access Key and Access Key ID, which you will need later. You can also copy and paste it to notepad as soon as you sucessfully create your user. You will not be able to see your Secret Access Key again unless you download it. 
-.
 
 ##### Serverless
 - Assuming you already signed up [here](https://www.serverless.com/pricing). 
@@ -125,14 +124,18 @@ We need to go to our AWS account and find the EC2 instance with the name "free-v
 
 ![](https://raw.githubusercontent.com/luchaoo7/free-vpn/master/images/ip-login.gif)
 
-The Public IP generated for my vpn was 13.40.28.61. So by going to https://13.40.28.61 I can log in with my username (test1) and password (test1) to download the files to log into the vpn. 
-One file allows you to log in without the need of a password and the other requires your password, pick whichever.
+The Public IP generated for my vpn was 13.40.28.61. So by going to https://13.40.28.61 I can log in with my username (test1) and password (test1) to download the profile files to log into the vpn. 
+One profile allows you to log in without the need of a password and the other requires your password, pick whichever.
 
-><em>note* you can change your test1 user's password and also access the admin page at https://YouIP/admin<em>
+><em>note* you can change your test1 user's password and also access the admin page at https://YourEC2IP/admin<em>
 
 ##### vpn client download
 You can download the vpn client once you login. It's available for Windows, Mac, linux, android and iOS.
 ![](https://raw.githubusercontent.com/luchaoo7/free-vpn/master/images/openvpn-page.png)
+ 
+Once you have downloaded and installed one of the clients, you can import the profile file(s) we downloaded and connect to the VPN.
+
+##### Connection Demo on Ubuntu
 
 ### Future update
 
