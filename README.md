@@ -114,17 +114,17 @@ See below
 ![](https://raw.githubusercontent.com/luchaoo7/free-vpn/master/images/deploying.gif)
 
 Once the above is done your VPN will be up and runing in an EC2 instance.
-- vpn user: test1
+- vpn username: test1
 - vpn password: test1
 
 All we need to do now is find the Public IP of where our VPN is running.
 We need to go to our AWS account and find the EC2 instance with the name "free-vpn" that was created when we deployed our application.
 
-##### findind our IP and download file
+##### finding our Public IP and download file
 
 ![](https://raw.githubusercontent.com/luchaoo7/free-vpn/master/images/ip-login.gif)
 
-The Public IP generated for my vpn was 13.40.28.61. So by going to https://13.40.28.61 I can log in with my username (test1) and password (test1) to download the profile files to log into the vpn. 
+The Public IP generated for my vpn was 13.40.28.61. So by going to https://13.40.28.61 I can log in with my username (test1) and password (test1) to download the profile file(s) to log into the vpn. 
 One profile allows you to log in without the need of a password and the other requires your password, pick whichever.
 
 ><em>note* you can change your test1 user's password and also access the admin page at https://YourEC2IP/admin<em>
@@ -139,8 +139,40 @@ Once you have downloaded and installed one of the clients, you can import the pr
 see gif
 ![](https://raw.githubusercontent.com/luchaoo7/free-vpn/master/images/activating-vpn.gif)
 
+And Voilà! you have your VPN Running.
+
+##### Useful info
+When you deployed, you deployed 4 free resources:
+- An EC2 InstaAn EC2 Instance.
+- Security Group.
+- An S3 Bucket.
+- And a S3 Bucket Policy.
+
+All these resoures can be torn down with a simple command from within the "free-vpn" folder.
+```
+$ serverless remove
+```
+and re-deploy with:
+```
+$ serverless deploy
+```
+### Why do you need your own VPN ?
+- Maybe you want to watch content your ISP is blocking.
+- Maybe you want to watch content the content provider is blocking in your geographical region e.g. Netflix blocking certain US content for UK customers.
+- Maybe you want access to a crypto exchange that blocks people in a certain region. 
+- Maybe you don't want to be tracked by ads. 
+- Maybe you don't want someone snooping in on your network connection while at Starbucks or Hilton Hotel.
+- Maybe you don't want to pay for a VPN that claims not to keep logs (my favorite).
+- Maybe you don't want to use one of those free vpns (not this one) that slows down the connection or times you at. 
+- Maybe you just want control .
+- or Maybe you just want to learn.
+
+### Conclusion
+
+I created this small setup because I was tired of having to manually setup my EC2 instance for VPN purposes and sometimes forgeting commands and sometimes forgetting what resouces I had running. With this setup I know when I do ***serverless remove*** I'm not forgetting anytiong. And of course, it's free :).
+
 ### Future update
 
-At the moment the VPN is deploys to eu-west-2, with a specic image ID for that region.
-The below link shows how to make the region and imageID selection more dynamic
-[aws-cloudformation-templates](https://github.com/awslabs/aws-cloudformation-templates/blob/master/aws/solutions/OperatingSystems/ubuntu20.04LTS_cfn-hup.cfn.yaml)
+At the moment the VPN deploys to eu-west-2 (London), with a specic image ID for that region.
+I will be adding an update to pass what region you want to deploy your VPN to and automatically tear down whatever may be running (don't quote me on that meaning :D, feel free to fork or make a pull request if you feel like contributing).
+>*note: you only get 750 hours of free EC2 usage a month on AWS while using the Free Tier, which amounts to 31.25 days a month, so running more than one EC2 instance will incur charges.
