@@ -59,7 +59,7 @@ or at https://github.com/luchaoo7/free-vpn click to download the project to then
 $ unzip free-vpn-master.zip
 ```
 
-Once you unzip or clone the project you will see a the folder "free-vpn". Change directory into the folder. Every command will be executed from this root folder.
+Once you unzip or clone the project you will see a folder "free-vpn". Change directory into the folder. Every command will be executed from this root folder.
 ```
 $ cd free-vpn 
 ```
@@ -174,5 +174,5 @@ I created this small setup because I was tired of having to manually setup my EC
 ### Future update
 
 At the moment the VPN deploys to eu-west-2 (London), with a specic image ID for that region.
-I will be adding an update to pass what region you want to deploy your VPN to and automatically tear down whatever may be running (don't quote me on that meaning :D, feel free to fork or make a pull request if you feel like contributing).
+I will be adding an update to pass what region you want to deploy your VPN to and automatically tear down whatever may be running (don't quote me on adding more updates lol, feel free to fork or make a pull request if you feel like contributing).
 >*note: you only get 750 hours of free EC2 usage a month on AWS while using the Free Tier, which amounts to 31.25 days a month, so running more than one EC2 instance will incur charges.
