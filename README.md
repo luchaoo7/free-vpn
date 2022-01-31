@@ -154,12 +154,12 @@ And Voilà! you have your VPN Running.
 
 ##### Useful info
 When you deployed, you deployed 4 free resources:
-- An EC2 InstaAn EC2 Instance.
-- Security Group.
+- An EC2 Instance.
+- A security Group.
 - An S3 Bucket.
 - And a S3 Bucket Policy.
 
-All these resoures can be torn down with a simple command from within the "free-vpn" folder.
+All these resources can be torn down with a simple command from within the "free-vpn" folder.
 ```
 $ serverless remove
 ```
@@ -169,7 +169,7 @@ $ serverless deploy
 ```
 ### Conclusion
 
-I created this small setup because I was tired of having to manually setup my EC2 instance for VPN purposes and sometimes forgeting commands and sometimes forgetting what resouces I had running. With this setup I know when I do ***serverless remove*** I'm not forgetting anytiong. And of course, it's free :).
+I created this small setup because I was tired of having to manually setup my EC2 instance for VPN purposes and sometimes forgetting commands and sometimes forgetting what resources I had running. With this setup I know when I do ***serverless remove*** I'm not leaving anything running and of course, it's free :).
 
 ### Future update
 
