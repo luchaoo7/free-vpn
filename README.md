@@ -18,6 +18,7 @@ This template demonstrates how to create a free VPN running on an AWS EC2 instan
 - Maybe you just want control .
 - or Maybe you just want to learn.
 
+
 ## Requirements
 
 - AWS Free Tier
