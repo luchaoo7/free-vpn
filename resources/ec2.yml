@@ -49,6 +49,9 @@ Resources:
           printf 'DELETE\nyes\nyes\n1\nrsa\n2048\nrsa\n2048\n943\n443\nyes\nyes\nyes\nyes\n\n' | ovpn-init && ~/new_user.sh
 
           /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --resource Ec2Instance --region ${AWS::Region}
+
+          apt install awscli
+          aws sns publish --topic-arn arn:aws:sns:${AWS::Region}:${AWS::AccountId}:snsPublishEC2Ip --message-body "hello world"
       SecurityGroupIds:
         - !Ref OpenVPNSecurityGroup 
       Tags:
@@ -56,3 +59,5 @@ Resources:
           Value: free-vpn
         - Key: Type
           Value: Serverless Creation
+
+#echo ${self:provider.environment.EC2_IP} | aws sns publish --topic-arn arn:aws:sns:${AWS::Region}:${AWS::AccountId}:snsPublishEC2Ip --message-attributes fileName=EC2-IP.txt --message-body "hello world"

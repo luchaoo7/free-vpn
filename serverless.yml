@@ -1,5 +1,6 @@
-app: free-vpn
-service: free-vpn
+org: lucha0075db
+app: new-vpn
+service: free-vpn-2
 
 frameworkVersion: '2 || 3'
 
@@ -7,8 +8,14 @@ provider:
   name: aws
   runtime: nodejs12.x
   region: eu-west-2
+  iam:
+    role:
+      statements:
+        - Effect: "Allow"
+          Action:
+            - "sns:Publish"
+          Resource: "*"
 
 resources:
   - ${file(resources/ec2.yml)}
   - ${file(resources/securityGroup.yml)}
-  # create the EC2 resource file
