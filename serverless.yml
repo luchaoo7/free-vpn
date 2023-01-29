@@ -7,7 +7,10 @@ frameworkVersion: '2 || 3'
 provider:
   name: aws
   runtime: nodejs12.x
-  region: eu-west-2
+  #region: ${file(./region.${opt:stage, 'london'}.json):region}
+  region: ${self:provider.environment.region}
+  environment: 
+    region: ${file(./region.${opt:stage, 'london'}.json):region}
   iam:
     role:
       statements:
@@ -16,6 +19,27 @@ provider:
             - "sns:Publish"
           Resource: "*"
 
+custom:
+  images:
+    mumbai: "ami-0597375488017747e"
+    virginia: "ami-0778521d914d23bc1"
+    oregon: "ami-04bad3c587fe60d89"
+    london: "ami-0015a39e4b7c0966f"
+    ireland: "ami-0c68b55d1c875067e"
+    frankfurt: "ami-076bdd070268f9b8d"
+    paris: "ami-0a89a7563fc68be84"
+  regions:
+    mumbai: "ap-south-1"
+    virginia: "us-east-1"
+    oregon: "us-west-2"
+    london: "eu-west-2"
+    ireland: "eu-west-1"
+    frankfurt: "eu-central-1"
+    paris: "eu-west-3"
+
+
 resources:
   - ${file(resources/ec2.yml)}
   - ${file(resources/securityGroup.yml)}
+  - ${file(resources/role.yml)}
+  - ${file(resources/keypair.yml)}

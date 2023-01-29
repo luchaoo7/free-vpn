@@ -1,0 +1,5 @@
+Resources:
+  KeyPair:
+    Type: AWS::EC2::KeyPair
+    Properties:
+      KeyName: "myKeyPair"

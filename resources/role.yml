@@ -1,0 +1,45 @@
+  Resources:
+    IAMInstanceProfile:
+      Type: "AWS::IAM::InstanceProfile"
+      Properties:
+        Path: "/"
+        Roles:
+          - !Ref EC2InstanceRole
+
+    EC2InstanceRole:
+      Type: "AWS::IAM::Role"
+      Properties:
+        AssumeRolePolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Principal:
+                Service:
+                  - ec2.amazonaws.com
+              Action:
+                - 'sts:AssumeRole'
+        Path: /
+        Policies:
+          - PolicyName: root
+            PolicyDocument:
+              Version: "2012-10-17"
+              Statement:
+                - Effect: Allow
+                  Action: '*'
+                  Resource: '*'
+
+    EC2InstancePolicy:
+      Type: 'AWS::IAM::Policy'
+      Properties:
+        PolicyName: TestPolicy
+        PolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Action:
+                - 'cloudformation:Describe*'
+                - 'cloudformation:List*'
+                - 'cloudformation:Get*'
+              Resource: '*'
+        Roles:
+          - !Ref EC2InstanceRole
