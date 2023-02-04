@@ -177,3 +177,31 @@ I created this small setup because I was tired of having to manually setup my EC
 At the moment the VPN deploys to eu-west-2 (London), with a specic image ID for that region.
 I will be adding an update to pass what region you want to deploy your VPN to and automatically tear down whatever may be running (don't quote me on adding more updates lol, feel free to fork or make a pull request if you feel like contributing).
 >*note: you only get 750 hours of free EC2 usage a month on AWS while using the Free Tier, which amounts to 31.25 days a month, so running more than one EC2 instance will incur charges.
+
+##### Region Selection
+
+You can now select what region to deploy to.
+
+    mumbai: "ap-south-1"
+    virginia: "us-east-1"
+    oregon: "us-west-2"
+    london: "eu-west-2"
+    ireland: "eu-west-1"
+    frankfurt: "eu-central-1"
+    paris: "eu-west-3"
+
+`sls deploy --stage london | ireland | paris`
+`sls remove --stage london | ireland | paris`
+
+Remember you will now have to remove to deploy to a new region, otherwise you will have several intances running. This is okay if you do not mind pay for 
+ec2.
+
+
+##### Notification
+
+If you want to receive a notification via email with information of your ec2 public ip address
+
+1.) create and sns topic with the name 'snsPublishEC2Ip' in the london region (eu-west-2)
+2.) subscrip your eamil to the topic.
+
+whenever a deployment is finished, your will receive a notification with the ip address to go to and download your vpn file
