@@ -7,7 +7,6 @@ frameworkVersion: '2 || 3'
 provider:
   name: aws
   runtime: nodejs12.x
-  #region: ${file(./region.${opt:stage, 'london'}.json):region}
   region: ${self:provider.environment.region}
   environment: 
     region: ${file(./region.${opt:stage, 'london'}.json):region}
@@ -42,4 +41,3 @@ resources:
   - ${file(resources/ec2.yml)}
   - ${file(resources/securityGroup.yml)}
   - ${file(resources/role.yml)}
-  - ${file(resources/keypair.yml)}
