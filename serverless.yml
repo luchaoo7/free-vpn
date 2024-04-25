@@ -6,7 +6,7 @@ frameworkVersion: '2 || 3'
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs18.x
   region: ${self:provider.environment.region}
   environment: 
     region: ${file(./region.${opt:stage, 'london'}.json):region}
@@ -27,6 +27,7 @@ custom:
     ireland: "ami-0c68b55d1c875067e"
     frankfurt: "ami-076bdd070268f9b8d"
     paris: "ami-0a89a7563fc68be84"
+    spain: "ami-03486abd2962c176f"
   regions:
     mumbai: "ap-south-1"
     virginia: "us-east-1"
@@ -35,6 +36,7 @@ custom:
     ireland: "eu-west-1"
     frankfurt: "eu-central-1"
     paris: "eu-west-3"
+    spain: "eu-south-2"
 
 
 resources:

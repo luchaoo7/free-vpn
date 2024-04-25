@@ -25,3 +25,13 @@ Resources:
           FromPort: 22
           ToPort: 22
           CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          Description: "server port nginx"
+          FromPort: 8081
+          ToPort: 8081
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          Description: "Port for node express server"
+          FromPort: 3001
+          ToPort: 3001
+          CidrIp: 0.0.0.0/0

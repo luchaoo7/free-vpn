@@ -5,7 +5,14 @@ Resources:
       InstanceType: t2.micro
       ImageId: ${self:custom.images.${opt:stage, "london"}}
       # Ubuntu Server 20.04 LTS (HVM), SSD Volume Type Free Tier, eu-west-2 image
-      # KeyName: vpnkey # key are only unique to one region
+      #    touch ~/.bash_profile
+      #    curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
+      #    source ~/.bashrc
+      #    nvm install node
+      #    nvm install 21.1.0
+      #    nvm use 21.1.0
+
+      KeyName: vpnkey # key are only unique to one region
       IamInstanceProfile: !Ref IAMInstanceProfile
       UserData:
         Fn::Base64: !Sub |
@@ -21,6 +28,21 @@ Resources:
           wget -qO - https://as-repository.openvpn.net/as-repo-public.gpg | apt-key add -
           echo "deb http://as-repository.openvpn.net/as/debian focal main">/etc/apt/sources.list.d/openvpn-as-repo.list
           apt update
+
+          apt-get update
+          apt-get install -y ca-certificates curl gnupg
+          apt  install tree
+          apt install -y nginx
+          ufw allow 'Nginx Full'
+
+          mkdir -p /etc/apt/keyrings
+          curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+          NODE_MAJOR=20
+          echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list
+          apt-get update
+          apt-get install nodejs -y
+          apt install unzip
+          npm install pm2@latest -g
 
           apt -y install openvpn-as
           aws sns publish --topic-arn arn:aws:sns:eu-west-2:${aws:accountId}:snsPublishEC2Ip --region eu-west-2 --message {"https://$(curl https://checkip.amazonaws.com)"}
@@ -42,6 +64,7 @@ Resources:
 
           /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --resource Ec2Instance --region ${AWS::Region}
 
+          service awslogs stop
       SecurityGroupIds:
         - !Ref OpenVPNSecurityGroup 
       Tags:
