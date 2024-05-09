@@ -44,11 +44,18 @@ Resources:
           apt install unzip
           npm install pm2@latest -g
 
+          cat > /tmp/mypy.py <<'EOF'
+          ${file(scripts/mypy.py)}
+          EOF
+
           apt -y install openvpn-as
           aws sns publish --topic-arn arn:aws:sns:eu-west-2:${aws:accountId}:snsPublishEC2Ip --region eu-west-2 --message {"https://$(curl https://checkip.amazonaws.com)"}
 
           sed -i 's/dest="ec2",/dest="ec2", default=True,/g' /usr/local/openvpn_as/bin/_ovpn-init
           sed -i "s/passw = esc_str/passw = \"\" #/g" /usr/local/openvpn_as/bin/_ovpn-init
+          sed -i '899i\    new_state = SubscriptionTracking2()\n    subhelper.state = new_state' /usr/local/openvpn_as/bin/_ovpn-init
+          cat /tmp/mypy.py >> /usr/local/openvpn_as/bin/_ovpn-init
+          sed -i "s/SubscriptionHelper()/SubscriptionHelper2()/g" /usr/local/openvpn_as/bin/_ovpn-init
 
           ln -s /usr/local/openvpn_as/bin/ /usr/local/bin/ovpn-manual-configure
           ln -s /usr/local/openvpn_as/scripts/ /usr/local/bin/openvpn-scripts

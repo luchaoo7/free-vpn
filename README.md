@@ -205,3 +205,6 @@ If you want to receive a notification via email with information of your ec2 pub
 2.) subscrip your eamil to the topic.
 
 whenever a deployment is finished, your will receive a notification with the ip address to go to and download your vpn file
+
+##### Key
+You need to create a key pair "The key pair 'vpnkey' 
